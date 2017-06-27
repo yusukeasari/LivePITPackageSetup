@@ -17,9 +17,8 @@ else
 	mv "${HOMEDIR}${HTMLDIR}${LPDIR}/"* $HOMEDIR$HTMLDIR
 	if [ -e "${HOMEDIR}${HTMLDIR}/css" ]
 	then
-		mv "${HOMEDIR}${HTMLDIR}${JDIR}/css/"* "$HOMEDIR$HTMLDIR/css"
-		mv "${HOMEDIR}${HTMLDIR}${JDIR}/lib/"* "$HOMEDIR$HTMLDIR/lib"
-		mv "${HOMEDIR}${HTMLDIR}${JDIR}/js/"* "$HOMEDIR$HTMLDIR/js"
+		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/css/"* "$HOMEDIR$HTMLDIR/css"
+		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/lib/"* "$HOMEDIR$HTMLDIR/lib"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/css"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/lib"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/js"
@@ -41,8 +40,8 @@ sed -i -e "s/0000/$INPUT/g" app/mid.json
 
 echo -n "縦ブロック数："
 read INPUT
-sed -i -e "s/1111/INPUT/g" setup2016.json
-sed -i -e "s/1111/INPUT/g" app/mid.json
+sed -i -e "s/1111/$INPUT/g" setup2016.json
+sed -i -e "s/1111/$INPUT/g" app/mid.json
 
 rm -rf ${HOMEDIR}${HTMLDIR}${LPDIR}
 rm -rf ${HOMEDIR}${HTMLDIR}${JDIR}
