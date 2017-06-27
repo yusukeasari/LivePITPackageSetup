@@ -39,7 +39,7 @@ read INPUT
 sed -i -e "s/0000/$INPUT/g" setup2016.json
 sed -i -e "s/0000/$INPUT/g" app/mid.json
 
-echo -n "縦ブロック数："
+echo -n "横ブロック数："
 read INPUT
 sed -i -e "s/1111/$INPUT/g" setup2016.json
 sed -i -e "s/1111/$INPUT/g" app/mid.json
