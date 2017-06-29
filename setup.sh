@@ -5,6 +5,14 @@ HTMLDIR="/public_html"
 LPDIR="/LivePITPackage"
 JDIR="/Johoo"
 
+echo -n "ホームディレクトリ(デフォルト:/home/pituser)："
+read INPUT
+
+if [ $INPUT != "" ]
+then
+	HOMEDIR=$INPUT
+fi
+
 if [ -e ${HOMEDIR}${HTMLDIR}${JDIR} ]
 then
 	echo "tmp dir already exists."
@@ -29,11 +37,15 @@ else
 	fi
 fi
 
+
+sed -i -e "s/HOMEDIR/$INPUT/g" ipad_demo/preview2.php
+
+
 #
 echo -n "サブドメインを入力："
 read INPUT
-sed -i -e "s/DOMAIN/$INPUT/g" setup2016.json
-sed -i -e "s/DOMAIN/$INPUT/g" app/mid.json
+sed -i -e "s/SUBDOMAIN/$INPUT/g" setup2016.json
+sed -i -e "s/SUBDOMAIN/$INPUT/g" app/mid.json
 
 echo -n "縦ブロック数："
 read INPUT
