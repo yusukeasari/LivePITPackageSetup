@@ -19,9 +19,10 @@ else
 	then
 		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/css/"* "$HOMEDIR$HTMLDIR/css"
 		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/lib/"* "$HOMEDIR$HTMLDIR/lib"
+		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/img/"* "$HOMEDIR$HTMLDIR/img"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/css"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/lib"
-		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/js"
+		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/img"
 		mv "${HOMEDIR}${HTMLDIR}${JDIR}/"* $HOMEDIR$HTMLDIR
 	else
 		mv "${HOMEDIR}${HTMLDIR}${JDIR}/"* $HOMEDIR$HTMLDIR
