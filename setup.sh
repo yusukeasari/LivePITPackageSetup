@@ -25,9 +25,10 @@ else
 	mv "${HOMEDIR}${HTMLDIR}${LPDIR}/"* $HOMEDIR$HTMLDIR
 	if [ -e "${HOMEDIR}${HTMLDIR}/css" ]
 	then
-		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/css/"* "$HOMEDIR$HTMLDIR/css"
-		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/lib/"* "$HOMEDIR$HTMLDIR/lib"
-		mv -f "${HOMEDIR}${HTMLDIR}${JDIR}/img/"* "$HOMEDIR$HTMLDIR/img"
+		cp -f "${HOMEDIR}${HTMLDIR}${JDIR}/css/"* "$HOMEDIR$HTMLDIR/css"
+		cp -f "${HOMEDIR}${HTMLDIR}${JDIR}/lib/"* "$HOMEDIR$HTMLDIR/lib"
+		cp -f "${HOMEDIR}${HTMLDIR}${JDIR}/img/"* "$HOMEDIR$HTMLDIR/img"
+		cp -f "${HOMEDIR}${HTMLDIR}${LPDIR}/swfData/"* "$HOMEDIR$HTMLDIR/swfData"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/css"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/lib"
 		rm -rf "${HOMEDIR}${HTMLDIR}${JDIR}/img"
@@ -37,15 +38,22 @@ else
 	fi
 fi
 
+mkdir "${HOMEDIR}${HTMLDIR}/collage/result"
+chmod 777 "${HOMEDIR}${HTMLDIR}/collage/result"
 
-sed -i -e "s/HOMEDIR/$INPUT/g" ipad_demo/preview2.php
+sed -i -e "s/HOMEDIR/$INPUT/g" ipad/preview2.php
 
 
 #
-echo -n "サブドメインを入力："
+echo -n "ドメインを入力(Ex:test.pitcom.jp)："
 read INPUT
 sed -i -e "s/SUBDOMAIN/$INPUT/g" setup2016.json
 sed -i -e "s/SUBDOMAIN/$INPUT/g" app/mid.json
+
+echo -n "案件IDを入力："
+read INPUT
+sed -i -e "s/PROJECT/$INPUT/g" setup2016.json
+sed -i -e "s/PROJECT/$INPUT/g" app/mid.json
 
 echo -n "縦ブロック数："
 read INPUT
